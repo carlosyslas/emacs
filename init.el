@@ -25,7 +25,8 @@
   (scroll-bar-mode -1)
   (delete-selection-mode 1)
   (electric-pair-mode 1)
-  (set-variable 'inhibit-startup-message t))
+  (set-variable 'inhibit-startup-message t)
+  (set-variable 'use-short-answers t))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
@@ -63,6 +64,25 @@
   :straight t
   :config
   (marginalia-mode))
+
+(use-package dumb-jump
+  :ensure t
+  :straight t
+  :custom
+  (dump-jump-prefer-searcher 'rg)
+  :ensure-system-package (rg)
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
+(use-package go-mode
+  :ensure t
+  :straight t)
+
+(use-package spacious-padding
+  :ensure t
+  :straight t
+  :config
+  (spacious-padding-mode 1))
 
 
 (load-theme 'modus-vivendi)
