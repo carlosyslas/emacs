@@ -64,14 +64,6 @@
   :config
   (marginalia-mode))
 
-(use-package pg
-  :ensure t
-  :straight (pg :type git :host github :repo "emarsden/pg-el"))
-
-(use-package pgmacs
-  :ensure t
-  :straight (pgmacs :type git :host github :repo "emarsden/pgmacs")
-  :after (pg))
 
 (load-theme 'modus-vivendi)
 (set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 150)
