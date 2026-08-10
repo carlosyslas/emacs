@@ -16,6 +16,22 @@
 
 (straight-use-package 'use-package)
 
+;; Basic config
+(use-package emacs
+  :ensure nil
+  :config
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (delete-selection-mode 1))
+
+(use-package exec-path-from-shell
+  :ensure t
+  :straight t
+  :config
+  (exec-path-from-shell-initialize))
+
+
 (use-package magit
   :ensure t
   :straight t)
