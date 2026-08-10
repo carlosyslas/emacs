@@ -23,7 +23,10 @@
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
-  (delete-selection-mode 1))
+  (delete-selection-mode 1)
+  (set-variable 'inhibit-startup-message t))
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (use-package exec-path-from-shell
   :ensure t
