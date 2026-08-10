@@ -16,6 +16,12 @@
 
 (straight-use-package 'use-package)
 
+(setq is-mac (eq system-type 'darwin))
+(when is-mac
+  (setq mac-command-modifier 'meta
+	mac-option-modifier nil
+	mac-right-option-modifier 'control))
+
 ;; Basic config
 (use-package emacs
   :ensure nil
@@ -29,6 +35,17 @@
   (set-variable 'use-short-answers t))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(use-package crux
+  :ensure t
+  :straight t
+  :bind
+  (("C-a" . crux-move-beginning-of-line)
+   ("C-k" . crux-smart-kill-line)
+   ("C-," . crux-duplicate-current-line-or-region)
+   ("C-c I" . crux-find-user-init-file)
+   ("C-c l" . crux-find-current-directory-dir-locals-file)
+   ("C-<backspace>" . crux-kill-line-backwards)))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -85,5 +102,5 @@
   (spacious-padding-mode 1))
 
 
-(load-theme 'modus-vivendi)
+(load-theme 'modus-operandi-tinted)
 (set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 150)
