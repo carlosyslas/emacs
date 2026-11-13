@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
@@ -100,6 +101,10 @@
   :straight t
   :config
   (spacious-padding-mode 1))
+
+(use-package olivetti
+  :ensure t
+  :straight t)
 
 
 (load-theme 'modus-operandi-tinted)
